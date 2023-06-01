@@ -3,15 +3,22 @@ cmake_minimum_required(VERSION 3.22)
 #specify project name
 project(petString)
 
-# Create a target executable
-add_executable(petString-bench)
+# Create target executables
+add_executable(petString-bench) #benchmarking
+add_executable(petString)
 
-# Add src as a subdirectory, include the file src/CMakelists.txt
+# Add src and bench as a subdirectories, including contained (private) CMakeLists.txt files
 add_subdirectory(bench)
+add_subdirectory(src)
 
 target_include_directories(petString-bench
 	PRIVATE
 		"bench"
+)
+
+target_include_directories(petString
+	PRIVATE
+		"src"
 )
 
 # build google benchmark (target: benchmark)
@@ -22,6 +29,6 @@ add_subdirectory(vendor/google/benchmark)
 ## build tests (targets: gtest_main, gtest)
 #add_subdirectory(vendor/google/googletest/googletest)
 
-# link targets
+# link targets to the benchmark/tests libraries
 target_link_libraries("${PROJECT_NAME}-bench" benchmark)
 #target_link_libraries("${PROJECT_NAME}-test" gtest)

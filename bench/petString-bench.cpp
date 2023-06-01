@@ -1,11 +1,6 @@
-// rewritten from example https://www.youtube.com/watch?v=UNvCuYQCXAI
-// google benchmark was installed in the same folder as the .cpp file
-// run $ g++ mybenchmark.cc -std=c++11 -isystem benchmark/include -Lbenchmark/build/src -lbenchmark -lpthread -o mybenchmark
-// try with Cmake
-// next try on project :)
+// Function rewritten from example https://www.youtube.com/watch?v=UNvCuYQCXAI
 
 #include <benchmark/benchmark.h>
-
 
 #include <string>
 #include <vector>
