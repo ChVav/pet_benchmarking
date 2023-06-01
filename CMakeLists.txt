@@ -1,17 +1,17 @@
 cmake_minimum_required(VERSION 3.22)
 
 #specify project name
-project(petBench)
+project(petString)
 
 # Create a target executable
-add_executable(petBench-bench)
+add_executable(petString-bench)
 
 # Add src as a subdirectory, include the file src/CMakelists.txt
-add_subdirectory(src)
+add_subdirectory(bench)
 
-target_include_directories(petBench-bench
+target_include_directories(petString-bench
 	PRIVATE
-		"src"
+		"bench"
 )
 
 # build google benchmark (target: benchmark)
